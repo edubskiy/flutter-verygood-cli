@@ -29,5 +29,12 @@ void main() {
       act: (cubit) => cubit.decrement(),
       expect: () => [equals(-1)],
     );
+
+    blocTest<CounterCubit, int>(
+      'emits [0] when restore is called',
+      build: () => CounterCubit(),
+      act: (cubit) => cubit.restore(),
+      expect: () => [equals(0)],
+    );
   });
 }
